@@ -1,4 +1,7 @@
 // Runs when you click the extension icon
+// <option value="7325" selected="selected">The Heart Group Fresno</option>
+// <input type="hidden" name="PreviousLocationId" value="7325">
+																		
 chrome.action.onClicked.addListener(async (tab) => {
 
   const allowedHost = "https://santehealth.giva.net/";
