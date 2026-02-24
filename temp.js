@@ -1,6 +1,19 @@
 // Runs when you click the extension icon
 // <option value="7325" selected="selected">The Heart Group Fresno</option>
 // <input type="hidden" name="PreviousLocationId" value="7325">
+
+// <select class="w-100" name="LocationId" tabindex="1">
+// 																		<option value="">Choose</option>
+																		
+// 																			<option value="4409">- Asset Deletion -</option>
+																		
+// 																			<option value="4570">- Storage 125 -</option>
+																		
+// 																			<option value="4569">- Storage 210 -</option>
+																		
+// 																			<option value="4571">- Storage 225 -</option>
+																		
+// 																			<option value="5382" selected="selected">AGHA</option>
 																		
 chrome.action.onClicked.addListener(async (tab) => {
 
