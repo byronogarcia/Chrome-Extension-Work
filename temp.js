@@ -33,42 +33,30 @@ function insertCustomerCC() {
     "7325": ["462822", "590021", "574556"]
   };
 
-  let siteId = null;
+let siteId = null;
 
-  // ===============================
-  // Try primary selector
-  // ===============================
-  const locationSelect = document.querySelector('select[name="LocationId"]');
+// Try selected option first
+const selectedOption = document.querySelector('select[name="LocationId"] option[selected]');
 
-  if (locationSelect) {
-    siteId = locationSelect.value;
-    console.log("Checked LocationId, siteId:", siteId);
-  } else {
-    console.log("LocationId select not found.");
+if (selectedOption) {
+  siteId = selectedOption.value;
+  console.log("Found selected option:", siteId);
+}
+
+// Fallback to hidden PreviousLocationId
+if (!siteId) {
+  const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
+
+  if (previousLocation) {
+    siteId = previousLocation.value;
+    console.log("Using PreviousLocationId:", siteId);
   }
+}
 
-  // ===============================
-  // Fallback selector
-  // ===============================
-  if (!siteId) {
-
-    const previousLocation = document.querySelector('select[name="PreviousLocationId"]');
-
-    if (previousLocation) {
-      siteId = previousLocation.value;
-      console.log("Checked PreviousLocationId, siteId:", siteId);
-    } else {
-      console.log("PreviousLocationId select not found.");
-    }
-  }
-
-  // ===============================
-  // If still no site
-  // ===============================
-  if (!siteId) {
-    console.log("No site selected.");
-    return;
-  }
+if (!siteId) {
+  console.log("No site ID found at all.");
+  return;
+}
 
   // ===============================
   // Lookup users
