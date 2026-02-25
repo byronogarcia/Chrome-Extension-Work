@@ -1,55 +1,88 @@
-// background.js
 // Runs when you click the extension icon
-
 chrome.action.onClicked.addListener(async (tab) => {
 
-  // Only run on normal webpages
-  if (!tab.url.startsWith("http")) return;
+  const allowedHost = "https://santehealth.giva.net/";
 
-  // Inject and execute a function into the page
+  if (!tab.url.startsWith(allowedHost)) {
+    console.log("Not allowed host.");
+    return;
+  }
+
   await chrome.scripting.executeScript({
-    target: { tabId: tab.id },
+    target: { tabId: tab.id, allFrames: true },
     func: insertCustomerCC
   });
 });
 
-// This function runs inside the webpage context
+
+
 function insertCustomerCC() {
 
-  // Hardcoded Site → User mapping
+  console.log("Extension triggered.");
+
+ // if (window.self !== window.top) return;
+
+
   const siteUserMap = {
-    "5382": ["123456"],
-    "1234": ["123456", "654321", "000111"]
+    "5382": ["369454", "691092"],
+    "7325": ["462822", "590021", "574556"]
   };
 
-  // Find the Location dropdown
-  const select = document.querySelector('select[name="LocationId"]');
-  if (!select) {
-    console.log("Location dropdown not found.");
+  let siteId = null;
+
+  const locationSelect = document.querySelector('select[name="LocationId"] option[selected]');
+
+  if (locationSelect) {
+    siteId = locationSelect.value;
+    console.log("Checked LocationId, siteId:", siteId);
+  } else {
+    console.log("LocationId select not found:", siteId);
+  }
+
+
+  if (!siteId) {
+
+    const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
+
+    if (previousLocation) {
+      siteId = previousLocation.value;
+      console.log("Checked PreviousLocationId, siteId:", siteId);
+    } else {
+      console.log("PreviousLocationId select not found:", siteId);
+    }
+  }
+
+  
+  if (!siteId) {
+    console.log("No site selected.");
     return;
   }
 
-  const selectedSite = select.value;
 
-  const users = siteUserMap[selectedSite];
+  const users = siteUserMap[siteId];
+
   if (!users) {
-    console.log("No mapping for site:", selectedSite);
+    console.log("No mapping for site:", siteId);
     return;
   }
 
-  // Format as: user:123456,user:654321
+  console.log("Users found:", users);
+
+  // Format: user:123456,user:654321
   const formatted = users.map(id => `user:${id}`).join(",");
 
   const input = document.getElementById("customerCC");
+
   if (!input) {
-    console.log("customerCC input not found.");
+    console.log("customerCC input not found:", input);
     return;
   }
 
+
   input.value = formatted;
 
-  // Trigger change so jQuery / Select2 detects update
+  // Trigger change for jQuery/Select2
   input.dispatchEvent(new Event("change", { bubbles: true }));
 
-  console.log("Customer CC set to:", formatted);
+  console.log("Customer CC successfully set to:", formatted);
 }
