@@ -1,4 +1,23 @@
 // Runs when you click the extension icon
+
+let siteDataPromise;
+
+// function getSiteData() {
+//   if (!siteDataPromise) {
+//     const url = chrome.runtime.getURL("sites.json");
+
+//     siteDataPromise = fetch(url)
+//       .then(res => res.json())
+//       .catch(err => {
+//         console.error("Failed to load sites.json:", err);
+//         return null;
+//       });
+//   }
+
+//   return siteDataPromise;
+// }
+
+
 chrome.action.onClicked.addListener(async (tab) => {
 
   const allowedHost = "https://santehealth.giva.net/";
