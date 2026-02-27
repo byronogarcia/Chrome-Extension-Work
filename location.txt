@@ -1,246 +1,48 @@
-<select class="w-100" name="LocationId" tabindex="1">
-																		<option value="">Choose</option>
-																		
-																			<option value="4409">- Asset Deletion -</option>
-																		
-																			<option value="4570">- Storage 125 -</option>
-																		
-																			<option value="4569">- Storage 210 -</option>
-																		
-																			<option value="4571">- Storage 225 -</option>
-																		
-																			<option value="5382">AGHA</option>
-																		
-																			<option value="4207">ALSA</option>
-																		
-																			<option value="5685">APGRS</option>
-																		
-																			<option value="5110">APP</option>
-																		
-																			<option value="9636">CA Gastro Fresno</option>
-																		
-																			<option value="9637">CA Gastro Madera</option>
-																		
-																			<option value="5861">Cancer Center Institute</option>
-																		
-																			<option value="4344">CCFMG - UNI</option>
-																		
-																			<option value="6720">CCFMG - UOA</option>
-																		
-																			<option value="4890">CCFMG - UPS</option>
-																		
-																			<option value="4343">CCFMG Billing</option>
-																		
-																			<option value="5163">CCGO</option>
-																		
-																			<option value="6892">Central CA. Heart and Lung</option>
-																		
-																			<option value="4226">CHMG</option>
-																		
-																			<option value="7976">Clovis Pediatrics Group Ashlan</option>
-																		
-																			<option value="7977">Clovis Pediatrics Group First St</option>
-																		
-																			<option value="4762">Clovis Pediatrics Group Medical Ctr Dr</option>
-																		
-																			<option value="4249">CMC</option>
-																		
-																			<option value="4901">CMP Armstrong</option>
-																		
-																			<option value="4190">CMP Auberry</option>
-																		
-																			<option value="5068">CMP Borgstadt</option>
-																		
-																			<option value="4612">CMP Care Ctr Administration</option>
-																		
-																			<option value="5506">CMP Care Ctr Dental</option>
-																		
-																			<option value="4196">CMP Care Ctr North</option>
-																		
-																			<option value="4194">CMP Care Ctr Ped</option>
-																		
-																			<option value="5505">CMP Care Ctr Pharmacy</option>
-																		
-																			<option value="4197">CMP Care Ctr South</option>
-																		
-																			<option value="4195">CMP Care Ctr Urgent Care</option>
-																		
-																			<option value="4342">CMP Cedar</option>
-																		
-																			<option value="4200">CMP Clovis</option>
-																		
-																			<option value="7266">CMP Clovis Medical Group</option>
-																		
-																			<option value="4614">CMP Copeland Medical</option>
-																		
-																			<option value="7504">CMP Dizon Medicine</option>
-																		
-																			<option value="8004">CMP Dizon Medicine UC &#x2b;</option>
-																		
-																			<option value="7768">CMP Fowler Packing</option>
-																		
-																			<option value="4202">CMP Fresno Community</option>
-																		
-																			<option value="8857">CMP Manjal</option>
-																		
-																			<option value="4442">CMP NWMG Administration</option>
-																		
-																			<option value="4443">CMP NWMG Family Practice East</option>
-																		
-																			<option value="4444">CMP NWMG Family Practice West</option>
-																		
-																			<option value="4441">CMP NWMG Internal Medicine</option>
-																		
-																			<option value="4440">CMP NWMG Pediatrics</option>
-																		
-																			<option value="5507">CMP NWMG Pharmacy</option>
-																		
-																			<option value="4445">CMP NWMG Urgent Care</option>
-																		
-																			<option value="4191">CMP Oakhurst</option>
-																		
-																			<option value="4427">CMP OHMG</option>
-																		
-																			<option value="4203">CMP Pavilion</option>
-																		
-																			<option value="9355">CMP Pediatrics</option>
-																		
-																			<option value="4649">CMP PWMG Administration</option>
-																		
-																			<option value="4653">CMP PWMG Combo</option>
-																		
-																			<option value="4652">CMP PWMG Family Practice</option>
-																		
-																			<option value="4749">CMP PWMG Family Practice South</option>
-																		
-																			<option value="4650">CMP PWMG Internal Medicine</option>
-																		
-																			<option value="4654">CMP PWMG Peachwood East</option>
-																		
-																			<option value="4648">CMP PWMG Pediatrics</option>
-																		
-																			<option value="4651">CMP PWMG Urgent Care</option>
-																		
-																			<option value="4750">CMP PWMG X-Ray</option>
-																		
-																			<option value="4198">CMP Reedley East</option>
-																		
-																			<option value="4765">CMP Reedley North</option>
-																		
-																			<option value="4199">CMP Reedley West</option>
-																		
-																			<option value="4201">CMP Sussex</option>
-																		
-																			<option value="4204">CMP Sussex West</option>
-																		
-																			<option value="5472">CMP Tri-County</option>
-																		
-																			<option value="4227">CMP West</option>
-																		
-																			<option value="4192">CMP Woodward Park</option>
-																		
-																			<option value="4215">CNPMG</option>
-																		
-																			<option value="4208">COAMG</option>
-																		
-																			<option value="4902">Colon Rectal Surgical</option>
-																		
-																			<option value="4205">CPMG</option>
-																		
-																			<option value="4820">CPSMG</option>
-																		
-																			<option value="4228">CRAMG</option>
-																		
-																			<option value="5139">CSAF</option>
-																		
-																			<option value="4456">CVOMG Clovis</option>
-																		
-																			<option value="4209">CVOMG Fresno</option>
-																		
-																			<option value="4211">CVOMG NW</option>
-																		
-																			<option value="4210">CVOMG Sanger</option>
-																		
-																			<option value="4602" selected="selected">CVWHA</option>
-																		
-																			<option value="4771">CVWHA &#x28;P&amp;K&#x29;</option>
-																		
-																			<option value="5401">CVWHA FW</option>
-																		
-																			<option value="5402">CVWHA LR</option>
-																		
-																			<option value="9675">CVWHA Maple</option>
-																		
-																			<option value="5399">CVWHA Palm</option>
-																		
-																			<option value="5308">DDC</option>
-																		
-																			<option value="8686">ELM</option>
-																		
-																			<option value="4819">FCSMG</option>
-																		
-																			<option value="4939">FGI - Fresno Gastroenterology</option>
-																		
-																			<option value="7809">FIN - Fresno Institute of Neuroscience</option>
-																		
-																			<option value="4818">FPA</option>
-																		
-																			<option value="8180">HMG - Haven Medical Group</option>
-																		
-																			<option value="7851">Hongshek Han M.D.</option>
-																		
-																			<option value="4576">M2O &#x28;Moffett&#x29;</option>
-																		
-																			<option value="5307">NAMG</option>
-																		
-																			<option value="4898">OAF&#x2f;WCC</option>
-																		
-																			<option value="7388">OCP</option>
-																		
-																			<option value="4253">OEMG</option>
-																		
-																			<option value="4250">Other</option>
-																		
-																			<option value="5392">RAA</option>
-																		
-																			<option value="4214">REMG</option>
-																		
-																			<option value="4979">Sante - Palm</option>
-																		
-																			<option value="4189">Sante - Shaw</option>
-																		
-																			<option value="4701">Sante Colocation</option>
-																		
-																			<option value="8055">Sante Palm</option>
-																		
-																			<option value="5404">SCC</option>
-																		
-																			<option value="4206">SSMC</option>
-																		
-																			<option value="7326">The Heart Group Clovis</option>
-																		
-																			<option value="7325">The Heart Group Fresno</option>
-																		
-																			<option value="4613">UGSC - UroGynecologist</option>
-																		
-																			<option value="9306">UGSC Chestnut</option>
-																		
-																			<option value="6398">URO - California Urology</option>
-																		
-																			<option value="8835">Valley Sleep and Wellness Center</option>
-																		
-																			<option value="6764">VCC</option>
-																		
-																			<option value="4233">Vendor</option>
-																		
-																			<option value="5400">VFASP</option>
-																		
-																			<option value="4706">VPSA</option>
-																		
-																			<option value="8027">VPWC - Valley Podiatric Wound Care</option>
-																		
-																			<option value="4573">VSS - Valley Surgical Specialists</option>
-																		
-																			<option value="5639">WSC</option>
-																		
-																			<option value="4212">WSFC</option>
+{
+  "sites": {
+    "5382": { "name": "AGHA", "managers": ["1001", "1002"] },
+    "4207": { "name": "ALSA", "managers": ["1003"] },
+    "5685": { "name": "APGRS", "managers": ["1004", "1005"] },
+    "5110": { "name": "APP", "managers": ["1006"] },
+    "9636": { "name": "CA Gastro Fresno", "managers": ["1007", "1008"] },
+    "9637": { "name": "CA Gastro Madera", "managers": ["1009"] },
+    "5861": { "name": "Cancer Center Institute", "managers": ["1010", "1011"] },
+    "4344": { "name": "CCFMG - UNI", "managers": ["1012"] },
+    "6720": { "name": "CCFMG - UOA", "managers": ["1013"] },
+    "4890": { "name": "CCFMG - UPS", "managers": ["1014"] },
+    "4343": { "name": "CCFMG Billing", "managers": ["1015"] },
+    "5163": { "name": "CCGO", "managers": ["1016"] },
+    "6892": { "name": "Central CA. Heart and Lung", "managers": ["1017", "1018"] },
+    "4226": { "name": "CHMG", "managers": ["1019"] },
+    "7976": { "name": "Clovis Pediatrics Group Ashlan", "managers": ["1020"] },
+    "7977": { "name": "Clovis Pediatrics Group First St", "managers": ["1021"] },
+    "4762": { "name": "Clovis Pediatrics Group Medical Ctr Dr", "managers": ["1022"] },
+    "4249": { "name": "CMC", "managers": ["1023"] },
+    "4901": { "name": "CMP Armstrong", "managers": ["1024"] },
+    "4190": { "name": "CMP Auberry", "managers": ["1025"] },
+    "5068": { "name": "CMP Borgstadt", "managers": ["1026"] },
+    "4612": { "name": "CMP Care Ctr Administration", "managers": ["1027"] },
+    "5506": { "name": "CMP Care Ctr Dental", "managers": ["1028"] },
+    "4196": { "name": "CMP Care Ctr North", "managers": ["1029"] },
+    "4194": { "name": "CMP Care Ctr Ped", "managers": ["1030"] },
+    "5505": { "name": "CMP Care Ctr Pharmacy", "managers": ["1031"] },
+    "4197": { "name": "CMP Care Ctr South", "managers": ["1032"] },
+    "4195": { "name": "CMP Care Ctr Urgent Care", "managers": ["1033"] },
+    "4342": { "name": "CMP Cedar", "managers": ["1034"] },
+    "4200": { "name": "CMP Clovis", "managers": ["1035"] },
+    "7266": { "name": "CMP Clovis Medical Group", "managers": ["1036"] },
+    "4614": { "name": "CMP Copeland Medical", "managers": ["1037"] },
+    "7504": { "name": "CMP Dizon Medicine", "managers": ["1038"] },
+    "8004": { "name": "CMP Dizon Medicine UC +", "managers": ["1039"] },
+    "7768": { "name": "CMP Fowler Packing", "managers": ["1040"] },
+    "4202": { "name": "CMP Fresno Community", "managers": ["1041"] },
+    "8857": { "name": "CMP Manjal", "managers": ["1042"] },
+    "4442": { "name": "CMP NWMG Administration", "managers": ["1043"] },
+    "4443": { "name": "CMP NWMG Family Practice East", "managers": ["1044"] },
+    "4444": { "name": "CMP NWMG Family Practice West", "managers": ["1045"] },
+    "4441": { "name": "CMP NWMG Internal Medicine", "managers": ["1046"] },
+    "4440": { "name": "CMP NWMG Pediatrics", "managers": ["1047"] },
+    "5507": { "name": "CMP NWMG Pharmacy", "managers": ["1048"] },
+    "4445": { "name": "CMP NWMG Urgent Care", "managers": ["1049"] }
+  }
+}
