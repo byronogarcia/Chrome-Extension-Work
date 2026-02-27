@@ -1,6 +1,6 @@
 // Runs when you click the extension icon
 
-let siteDataPromise;
+// let siteDataPromise;
 
 // function getSiteData() {
 //   if (!siteDataPromise) {
