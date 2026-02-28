@@ -1,21 +1,21 @@
 // Runs when you click the extension icon
 
-// let siteDataPromise;
+let siteDataJSON;
 
-// function getSiteData() {
-//   if (!siteDataPromise) {
-//     const url = chrome.runtime.getURL("sites.json");
+function getSiteData() {
+  if (!siteDataJSON) {
+    const url = chrome.runtime.getURL("sites.json");
 
-//     siteDataPromise = fetch(url)
-//       .then(res => res.json())
-//       .catch(err => {
-//         console.error("Failed to load sites.json:", err);
-//         return null;
-//       });
-//   }
+    siteDataJSON = fetch(url)
+      .then(res => res.json())
+      .catch(err => {
+        console.error("Failed to load sites.json:", err);
+        return null;
+      });
+  }
 
-//   return siteDataPromise;
-// }
+  return siteDataJSON;
+}
 
 
 chrome.action.onClicked.addListener(async (tab) => {
