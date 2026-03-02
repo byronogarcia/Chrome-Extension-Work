@@ -1,107 +1,59 @@
-// Runs when you click the extension icon
-
-let siteDataJSON;
-
-function getSiteData() {
-  if (!siteDataJSON) {
-    const url = chrome.runtime.getURL("sites.json");
-
-    siteDataJSON = fetch(url)
-      .then(res => res.json())
-      .catch(err => {
-        console.error("Failed to load sites.json:", err);
-        return null;
-      });
-  }
-
-  return siteDataJSON;
-}
-
-
-chrome.action.onClicked.addListener(async (tab) => {
-
-  const allowedHost = "https://santehealth.giva.net/";
-
-  if (!tab.url.startsWith(allowedHost)) {
-    console.log("Not allowed host.");
-    return;
-  }
-
-  await chrome.scripting.executeScript({
-    target: { tabId: tab.id, allFrames: true },
-    func: insertCustomerCC
-  });
-});
-
-
-
-function insertCustomerCC() {
+function insertCustomerCC(siteData) {
 
   console.log("Extension triggered.");
+  console.log("Running in:", window.location.href);
 
- // if (window.self !== window.top) return;
-
-
-  const siteUserMap = {
-    "5382": ["369454", "691092"],
-    "7325": ["462822", "590021", "574556"]
-  };
+  // Ignore top frame
+  if (window.self === window.top) return;
 
   let siteId = null;
 
-  const locationSelect = document.querySelector('select[name="LocationId"] option[selected]');
-
-  if (locationSelect) {
-    siteId = locationSelect.value;
-    console.log("Checked LocationId, siteId:", siteId);
-  } else {
-    console.log("LocationId select not found:", siteId);
+  const select = document.querySelector('select[name="LocationId"]');
+  if (select && select.value) {
+    siteId = select.value.trim();
   }
 
-
   if (!siteId) {
-
     const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
-
-    if (previousLocation) {
-      siteId = previousLocation.value;
-      console.log("Checked PreviousLocationId, siteId:", siteId);
-    } else {
-      console.log("PreviousLocationId select not found:", siteId);
+    if (previousLocation && previousLocation.value) {
+      siteId = previousLocation.value.trim();
     }
   }
 
-  
   if (!siteId) {
     console.log("No site selected.");
     return;
   }
 
+  const siteConfig = siteData?.sites?.[siteId];
 
-  const users = siteUserMap[siteId];
-
-  if (!users) {
+  if (!siteConfig) {
     console.log("No mapping for site:", siteId);
     return;
   }
 
-  console.log("Users found:", users);
+  const users = siteConfig.managers;
 
-  // Format: user:123456,user:654321
+  if (!users || users.length === 0) {
+    console.log("No managers found.");
+    return;
+  }
+
   const formatted = users.map(id => `user:${id}`).join(",");
 
   const input = document.getElementById("customerCC");
 
   if (!input) {
-    console.log("customerCC input not found:", input);
+    console.log("customerCC input not found");
     return;
   }
 
-
-  input.value = formatted;
-
-  // Trigger change for jQuery/Select2
-  input.dispatchEvent(new Event("change", { bubbles: true }));
+  if (window.jQuery) {
+    window.jQuery(input).val(formatted).trigger("change");
+  } else {
+    input.value = formatted;
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 
   console.log("Customer CC successfully set to:", formatted);
 }
