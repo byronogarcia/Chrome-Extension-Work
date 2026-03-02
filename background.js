@@ -27,28 +27,62 @@ chrome.action.onClicked.addListener(async (tab) => {
     return;
   }
 
+  const siteData = await getSiteData();
+
+  if (!siteData) {
+    console.log("Site data failed to load.");
+    return;
+  }
+
   await chrome.scripting.executeScript({
     target: { tabId: tab.id, allFrames: true },
-    func: insertCustomerCC
+    func: insertCustomerCC,
+    args: [siteData]
   });
 });
 
 
 
-function insertCustomerCC() {
+function insertCustomerCC(siteData) {
 
   console.log("Extension triggered.");
 
  // if (window.self !== window.top) return;
 
+// Previous implementation with hardcoded mapping
+  // const siteUserMap = {
+  //   "5382": ["369454", "691092"],
+  //   "7325": ["462822", "590021", "574556"]
+  // };
 
-  const siteUserMap = {
-    "5382": ["369454", "691092"],
-    "7325": ["462822", "590021", "574556"]
-  };
+  // const siteConfig = siteData?.sites?.[siteId];
+
+  let siteConfig = null;
+
+  // Extracting from siteData JSON based on siteId from the page
+  // We will continue using siteConfig
+  // siteData is the JSON object
+
+  if (siteData && siteData.sites && siteId in siteData.sites) {
+    siteConfig = siteData.sites[siteId];
+  }
+
+  // if its empty return log saying so
+  if (!siteConfig) {
+    console.log("No mapping for site:", siteId)
+    return;
+  }
+
+  // initializing and setting users to managers from siteConfig
+  // ID selection
+  const users = siteConfig.managers;
+
+  console.log("Site name:", siteConfig.name);
+  console.log("Users found:", users);
 
   let siteId = null;
 
+  // setting value as selected site from LocationId select first
   const locationSelect = document.querySelector('select[name="LocationId"] option[selected]');
 
   if (locationSelect) {
@@ -58,7 +92,7 @@ function insertCustomerCC() {
     console.log("LocationId select not found:", siteId);
   }
 
-
+  // if LocationId is empty try PreviousLocationId select
   if (!siteId) {
 
     const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
@@ -78,7 +112,7 @@ function insertCustomerCC() {
   }
 
 
-  const users = siteUserMap[siteId];
+  //const users = siteUserMap[siteId];
 
   if (!users) {
     console.log("No mapping for site:", siteId);
