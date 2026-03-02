@@ -4,12 +4,12 @@ let siteDataJSON;
 
 function getSiteData() {
   if (!siteDataJSON) {
-    const url = chrome.runtime.getURL("sites.json");
+    const url = chrome.runtime.getURL("data.json");
 
     siteDataJSON = fetch(url)
       .then(res => res.json())
       .catch(err => {
-        console.error("Failed to load sites.json:", err);
+        console.error("Failed to load data.json:", err);
         return null;
       });
   }
@@ -46,8 +46,9 @@ chrome.action.onClicked.addListener(async (tab) => {
 function insertCustomerCC(siteData) {
 
   console.log("Extension triggered.");
+  console.log("Running in: ", window.location.href);
 
- // if (window.self !== window.top) return;
+  //if (window.self !== window.top) return;
 
 // Previous implementation with hardcoded mapping
   // const siteUserMap = {
@@ -58,20 +59,13 @@ function insertCustomerCC(siteData) {
   // const siteConfig = siteData?.sites?.[siteId];
 
   let siteConfig = null;
+  let siteId = null;
 
   // Extracting from siteData JSON based on siteId from the page
   // We will continue using siteConfig
   // siteData is the JSON object
 
-  if (siteData && siteData.sites && siteId in siteData.sites) {
-    siteConfig = siteData.sites[siteId];
-  }
 
-  // if its empty return log saying so
-  if (!siteConfig) {
-    console.log("No mapping for site:", siteId)
-    return;
-  }
 
   // initializing and setting users to managers from siteConfig
   // ID selection
@@ -80,13 +74,14 @@ function insertCustomerCC(siteData) {
   console.log("Site name:", siteConfig.name);
   console.log("Users found:", users);
 
-  let siteId = null;
 
   // setting value as selected site from LocationId select first
   const locationSelect = document.querySelector('select[name="LocationId"] option[selected]');
+  //const locationSelect = document.querySelector('select[name="LocationId"]');
+
 
   if (locationSelect) {
-    siteId = locationSelect.value;
+    siteId = locationSelect.value.trim();
     console.log("Checked LocationId, siteId:", siteId);
   } else {
     console.log("LocationId select not found:", siteId);
@@ -97,12 +92,22 @@ function insertCustomerCC(siteData) {
 
     const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
 
-    if (previousLocation) {
-      siteId = previousLocation.value;
+    if (previousLocation && previousLocation.value) {
+      siteId = previousLocation.value.trim();
       console.log("Checked PreviousLocationId, siteId:", siteId);
     } else {
       console.log("PreviousLocationId select not found:", siteId);
     }
+  }
+
+  if (siteData && siteData.sites && siteId in siteData.sites) {
+    siteConfig = siteData.sites[siteId];
+  }
+
+  // if its empty return log saying so
+  if (!siteConfig) {
+    console.log("No mapping for site:", siteId)
+    return;
   }
 
   
@@ -135,7 +140,14 @@ function insertCustomerCC(siteData) {
   input.value = formatted;
 
   // Trigger change for jQuery/Select2
-  input.dispatchEvent(new Event("change", { bubbles: true }));
+  // input.dispatchEvent(new Event("change", { bubbles: true }));
+
+  if (window.jQuery) {
+    window.jQuery(input).val(formatted).trigger("change");
+  } else {
+    input.value = formatted;
+    input.dispatchEvent(new Event ("change", { bubbles: true }))
+  }
 
   console.log("Customer CC successfully set to:", formatted);
 }
