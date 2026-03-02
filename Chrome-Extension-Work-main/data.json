@@ -1,0 +1,84 @@
+{
+  "sites": {
+    "5382": { "name": "AGHA", "managers": ["1001", "1002"] },
+    "9636": { "name": "CA Gastro Fresno", "managers": ["1007", "1008"] },
+    "9637": { "name": "CA Gastro Madera", "managers": ["1009"] },
+
+    "6892": { "name": "Central CA. Heart and Lung", "managers": ["1017", "1018"] },
+
+    "4902": { "name": "Colon Rectal Surgical", "managers": ["1017", "1018"] },
+
+    "4456": { "name": "CVOMG Clovis", "managers": ["1017", "1018"] },
+    "4209": { "name": "CVOMG Fresno", "managers": ["1017", "1018"] },
+
+    "4602": { "name": "CVWHA", "managers": ["1017", "1018"] },
+    "9675": { "name": "CVWHA Maple", "managers": ["1017", "1018"] },
+    "5399": { "name": "CVWHA Palm", "managers": ["1017", "1018"] },
+
+    "4196": { "name": "CMP Care Ctr North", "managers": ["1029"] },
+    "4197": { "name": "CMP Care Ctr South", "managers": ["1032"] },
+    "4195": { "name": "CMP Care Ctr Urgent Care", "managers": ["1033"] },
+    "4342": { "name": "CMP Cedar", "managers": ["1034"] },
+    "4200": { "name": "CMP Clovis", "managers": ["1035"] },
+    "7266": { "name": "CMP Clovis Medical Group", "managers": ["1036"] },
+    "8857": { "name": "CMP Manjal", "managers": ["1042"] },
+    
+    "4443": { "name": "CMP NWMG Family Practice East", "managers": ["1044"] },
+    "4444": { "name": "CMP NWMG Family Practice West", "managers": ["1045"] },
+    "4441": { "name": "CMP NWMG Internal Medicine", "managers": ["1046"] },
+    "4440": { "name": "CMP NWMG Pediatrics", "managers": ["1047"] },
+    "5507": { "name": "CMP NWMG Pharmacy", "managers": ["1048"] },
+    "4445": { "name": "CMP NWMG Urgent Care", "managers": ["1049"] },
+
+    "9355": { "name": "CMP Pediatrics", "managers": ["1020"] },
+
+    "4653": { "name": "CMP PWMG Combo", "managers": ["1044"] },
+    "4652": { "name": "CMP PWMG Family Practice", "managers": ["1045"] },
+    "4749": { "name": "CMP PWMG Family Practice South", "managers": ["1046"] },
+    "4650": { "name": "CMP PWMG Internal Medicine", "managers": ["1047"] },
+    "4654": { "name": "CMP PWMG Peachwood East", "managers": ["1048"] },
+    "4648": { "name": "CMP PWMG Pediatrics", "managers": ["1049"] },
+    "4651": { "name": "CMP PWMG Urgent Care", "managers": ["1019"] },
+    "4750": { "name": "CMP PWMG X-Ray Site", "managers": ["1019"] },
+
+    "4765": { "name": "CMP Reedley North", "managers": ["1019"] },
+
+    "4199": { "name": "CMP Reedley West", "managers": ["1019"] },
+
+    "5472": { "name": "CMP Tri-County", "managers": ["1019"] },
+
+    "4227": { "name": "CMP West", "managers": ["1019"] },
+
+    "4192": { "name": "CMP Woodward Park", "managers": ["1019"] },
+
+    "5308": { "name": "DDC", "managers": ["1019"] },
+
+    "8686": { "name": "ELM", "managers": ["1023"] },
+
+    "4939": { "name": "FGI - Fresno Gastroenterology", "managers": ["1025"] },
+
+    "7851": { "name": "Hongshek Han M.D.", "managers": ["1026"] },
+
+    "5307": { "name": "NAMG", "managers": ["1028"] },
+
+    "4898": { "name": "OAF&#x2f;WCC", "managers": ["1019"] },
+
+    "5404": { "name": "SCC", "managers": ["1019"] },
+
+    "4206": { "name": "SSMC", "managers": ["1019"] },
+
+    "7325": { "name": "The Heart Group Fresno", "managers": ["1031"] },
+    "7326": { "name": "The Heart Group Clovis", "managers": ["1031"] },
+    
+    "4613": { "name": "UGSC - UroGynecologist", "managers": ["1037"] },
+    "9306": { "name": "UGSC Chestnut", "managers": ["1038"] },
+
+    "5400": { "name": "VFASP", "managers": ["1039"] },
+
+    "8835": { "name": "Valley Sleep and Wellness Center", "managers": ["1040"] },
+    "5639": { "name": "WSC", "managers": ["1041"] },
+    "4212": { "name": "WSFC", "managers": ["1019"] }
+    
+    
+  }
+}
