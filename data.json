@@ -67,8 +67,8 @@
 
     "4206": { "name": "SSMC", "managers": ["1019"] },
 
-    "7325": { "name": "The Heart Group Fresno", "managers": ["1031"] },
-    "7326": { "name": "The Heart Group Clovis", "managers": ["1031"] },
+    "7325": { "name": "The Heart Group Fresno", "managers": ["462822", "590021", "574556"] },
+    "7326": { "name": "The Heart Group Clovis", "managers": ["462822", "590021", "574556"] },
     
     "4613": { "name": "UGSC - UroGynecologist", "managers": ["1037"] },
     "9306": { "name": "UGSC Chestnut", "managers": ["1038"] },
