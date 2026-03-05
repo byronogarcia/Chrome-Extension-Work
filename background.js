@@ -49,7 +49,7 @@ function insertCustomerCC(siteData) {
   console.log("Running in: ", window.location.href);
 
   // ignore top
-  if (window.self !== window.top) return;
+  //if (window.self !== window.top) return;
 
   let siteId = null;
 
