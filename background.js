@@ -53,14 +53,6 @@ function insertCustomerCC(siteData) {
 
   let siteId = null;
 
-  // initializing and setting users to managers from siteConfig
-  // ID selection
-  //const users = siteConfig.managers;
-
-  // console.log("Site name:", siteConfig.name);
-  // console.log("Users found:", users);
-
-
   // setting value as selected site from LocationId select first
   const locationSelect = document.querySelector('select[name="LocationId"]');
   //const locationSelect = document.querySelector('select[name="LocationId"]');
@@ -125,10 +117,7 @@ function insertCustomerCC(siteData) {
   }
 
 
-  //input.value = formatted;
-
   // Trigger change for jQuery/Select2
-  // input.dispatchEvent(new Event("change", { bubbles: true }));
 
   if (window.jQuery) {
     window.jQuery(input).val(formatted).trigger("change");
