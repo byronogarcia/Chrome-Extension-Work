@@ -1,7 +1,8 @@
-// Runs when you click the extension icon
+// background.js - Giva CC Autofill
 
 let siteDataJSON;
 
+// Loads and caches data.json
 function getSiteData() {
   if (!siteDataJSON) {
     const url = chrome.runtime.getURL("data.json");
@@ -13,134 +14,116 @@ function getSiteData() {
         return null;
       });
   }
-
   return siteDataJSON;
 }
 
-
+// As the name implies, when extension is clicked it runs
 chrome.action.onClicked.addListener(async (tab) => {
 
+  // Only run on Sante Health Giva instance, if not return
   const allowedHost = "https://santehealth.giva.net/";
 
+  // Check if it is the correct host, if not return
   if (!tab.url.startsWith(allowedHost)) {
-    console.log("Not allowed host.");
     return;
   }
 
+  // Loading site data from data.json, if it fails log and return
   const siteData = await getSiteData();
-
   if (!siteData) {
     console.log("Site data failed to load.");
     return;
   }
 
-// Read customerId from top frame where TicketApp lives
+// Read Customer ID using this executeScript
   const results = await chrome.scripting.executeScript({
     target: { tabId: tab.id, allFrames: true },
-    world: "MAIN",  // ADD THIS LINE
+    world: "MAIN",
     func: () => String(window.TicketApp?.customer?.id ?? "")
   });
   const customerId = results?.map(r => r.result).find(r => r !== "") ?? "";
+  // Log the customerId to verify it's being retrieved correctly
   console.log("customerId:", customerId);
-//---------------------------------------------------------
 
+  // Another excecuteScript to now insert the Customer CC
   await chrome.scripting.executeScript({
     target: { tabId: tab.id, allFrames: true },
     func: insertCustomerCC,
     args: [siteData, customerId]
   });
+
+  // Visual feedback for the user that the extension ran successfully
+  // Shows a green ✓ on the icon for 3 seconds then clears
+  chrome.action.setBadgeText({ text: "✓", tabId: tab.id });
+  chrome.action.setBadgeBackgroundColor({ color: "#2e7d32", tabId: tab.id });
+  setTimeout(() => chrome.action.setBadgeText({ text: "", tabId: tab.id }), 3000);
 });
 
 
-
+// Function defined here, takes in siteData from our data.json
+// and customerId we got from the previous executeScript
 function insertCustomerCC(siteData, customerId) {
 
-  console.log("Extension triggered.");
-  console.log("Running in: ", window.location.href);
-  console.log("customerId received:", customerId); // ADD THIS LINE
-
-  // ignore top
-  //if (window.self !== window.top) return;
+  // Logging if its running and what window its running in
+  console.log("Giva CC running in:", window.location.href);
 
   let siteId = null;
 
-  // setting value as selected site from LocationId select first
+  // Read from the webpage and get LocationID
+  // Example: <option value="5382">AGHA</option>
+  // Pulls LocationId setting it as 5382
   const locationSelect = document.querySelector('select[name="LocationId"]');
-  //const locationSelect = document.querySelector('select[name="LocationId"]');
-
-
   if (locationSelect && locationSelect.value) {
+    // if locationSelect is found and has a value, set siteId to it
+    // trim is used to remove any extra whitespace just in case
     siteId = locationSelect.value.trim();
-
-    console.log("Checked LocationId, siteId:", siteId);
-  } else {
-    console.log("LocationId select not found:", siteId);
   }
 
-  // if LocationId is empty try PreviousLocationId select
+  // If siteId is empty check Previous Location
   if (!siteId) {
-
     const previousLocation = document.querySelector('input[name="PreviousLocationId"]');
-
     if (previousLocation && previousLocation.value) {
       siteId = previousLocation.value.trim();
-
-      console.log("Checked PreviousLocationId, siteId:", siteId);
-    } else {
-      console.log("PreviousLocationId select not found:", siteId);
-    }
+    } 
   }
 
+  // Used to stop the function if its empty after two checks
+  // At this point it checked LocationId and PreviousLocationId and both were empty
+  if (!siteId) return;
 
   const siteConfig = siteData?.sites?.[siteId];
-
-  // if its empty return log saying so
+  // if site does not exist in our data.json log and return
   if (!siteConfig) {
     console.log("No mapping for site:", siteId)
     return;
   }
 
   const users = siteConfig.managers;
-
   // if still empty then log again
-  if (!siteId) {
-    console.log("No site selected.");
-    return;
-  }
-
-
 
   if (!users || users.length === 0) {
     console.log("No manager for site:", siteId);
     return;
   }
 
+  // Print manager IDs before filtering
   console.log("Users found:", users);
 
-//-------------------------------------------------
-  console.log("customerId:", customerId, typeof customerId);
-  console.log("users types:", users.map(id => typeof id));
-
+  // To prevent adding the customer CC
+  // if the customer is also a manager we exclude them from the CC list
   const filtered = users.filter(id => id !== customerId);
-
   if (customerId && filtered.length < users.length) {
   console.log("Excluded customer from CC:", customerId);
   }
-// -----------------------------------------------
 
   // Format: user:123456,user:654321
   const formatted = filtered.map(id => `user:${id}`).join(",");
 
   const input = document.getElementById("customerCC");
-
-  if (!input) {
-    console.log("customerCC input not found:", input);
-    return;
-  }
+  if (!input) return;
 
 
   // Trigger change for jQuery/Select2
-
   if (window.jQuery) {
     window.jQuery(input).val(formatted).trigger("change");
   } else {

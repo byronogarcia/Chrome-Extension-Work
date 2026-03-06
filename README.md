@@ -27,8 +27,12 @@ The Giva Autofill Cusomter CC can be toggled by:
 ## Goals for extension from here
 
 - Include offices Palm and Shaw, additional logic needed as there are 17-20 managers broken down by dept and individual user
-- Ensure to not include manager CC if the manager is the customer
 - Possibly auto-run when opening a new ticket and allow for click to run on already created tickets
 - Provide warning if the giva session is expired/visual cue
 - Use manage engine to deploy chrome extension to IT Dept, currently sharing zip->extracting->loading into chrome
 - Currently runs in all windows, running multiple times, need to run only in ticket iframe
+
+## New Features
+- Will not include Manager CC if the Manager is the Customer
+- Can use keyboard shortcut 'Ctrl+Shift+F' to trigger the shortcut
+- 3 second visual cue of a successful auto-fill
