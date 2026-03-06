@@ -1,20 +1,59 @@
 {
+  "_comment": "Manager IDs and their display names. TODO: Replace all 'Manager [ID]' placeholders with real names.",
+  "managers": {
+    "369454": { "name": "Julie Gutierrez" },
+    "691092": { "name": "Marielena Martinez" },
+    "462822": { "name": "Sarah Cervantes" },
+    "678605": { "name": "Coralie Bonisch" },
+    "456783": { "name": "Renee Kinzle" },
+    "565635": { "name": "Niomi Lazalde" },
+    "694965": { "name": "Angela Perez" },
+    "369498": { "name": "Casey Storm" },
+    "369469": { "name": "Alma Zamarripa" },
+    "741447": { "name": "Christi Rolff" },
+    "369946": { "name": "Adriana DeLoera" },
+    "714602": { "name": "Virginia Flores" },
+    "369742": { "name": "Toshika Wynn" },
+    "541565": { "name": "Jenny Eastman" },
+    "572750": { "name": "Michelle Hoole" },
+    "369961": { "name": "Eloisa Zavala" },
+    "423351": { "name": "Maria Moreno-Townsend" },
+    "454820": { "name": "Roberta Blackwell" },
+    "538077": { "name": "Sheri Hamett" },
+    "370036": { "name": "Adela Cerda" },
+    "369486": { "name": "Christy Delashmutt" },
+    "540057": { "name": "Rachel Weidner" },
+    "369507": { "name": "Donna Bayless" },
+    "370072": { "name": "Raquel Moreno" },
+    "369694": { "name": "Roxanne Juarez" },
+    "543243": { "name": "Armine Christenson" },
+    "369735": { "name": "Susana Reyes" },
+    "638611": { "name": "Joan Hill" },
+    "781593": { "name": "Meghan Hofmans" },
+    "588629": { "name": "Julie Han" },
+    "511592": { "name": "Nancy Tapia" },
+    "542623": { "name": "Maria Garcia" },
+    "369664": { "name": "Nancy Andrews" },
+    "590021": { "name": "Sandra Aleman" },
+    "574556": { "name": "Hillary Gutierrez" },
+    "440326": { "name": "Melissa Aguirre" },
+    "544495": { "name": "Meghan Trevino" },
+    "786241": { "name": "Harjinder Kaur" },
+    "545553": { "name": "Michelle Hernandez" },
+    "708567": { "name": "Crystal Oyervidez" },
+    "423344": { "name": "Jonovia Cooks" }
+  },
   "sites": {
     "5382": { "name": "AGHA", "managers": ["369454", "691092"] },
     "9636": { "name": "CA Gastro Fresno", "managers": ["462822", "678605"] },
     "9637": { "name": "CA Gastro Madera", "managers": ["462822", "678605"] },
-
     "6892": { "name": "Central CA. Heart and Lung", "managers": ["456783", "565635"] },
-
     "4902": { "name": "Colon Rectal Surgical", "managers": ["369454", "694965"] },
-
     "4456": { "name": "CVOMG Clovis", "managers": ["369498", "369469"] },
     "4209": { "name": "CVOMG Fresno", "managers": ["369498", "369469"] },
-
     "4602": { "name": "CVWHA", "managers": ["456783", "741447"] },
     "9675": { "name": "CVWHA Maple", "managers": ["456783", "741447"] },
     "5399": { "name": "CVWHA Palm", "managers": ["456783", "741447"] },
-
     "4196": { "name": "CMP Care Ctr North", "managers": ["369946"] },
     "4197": { "name": "CMP Care Ctr South", "managers": ["714602"] },
     "4195": { "name": "CMP Care Ctr Urgent Care", "managers": ["369946"] },
@@ -22,16 +61,13 @@
     "4200": { "name": "CMP Clovis", "managers": ["541565"] },
     "7266": { "name": "CMP Clovis Medical Group", "managers": ["572750"] },
     "8857": { "name": "CMP Manjal", "managers": ["369961"] },
-    
-    "4443": { "name": "CMP NWMG Family Practice East", "managers": ["423351"] },
-    "4444": { "name": "CMP NWMG Family Practice West", "managers": ["423351"] },
-    "4441": { "name": "CMP NWMG Internal Medicine", "managers": ["423351"] },
-    "4440": { "name": "CMP NWMG Pediatrics", "managers": ["423351"] },
-    "5507": { "name": "CMP NWMG Pharmacy", "managers": ["423351"] },
-    "4445": { "name": "CMP NWMG Urgent Care", "managers": ["423351"] },
-
+    "4443": { "name": "CMP NWMG Family Practice East", "managers": ["423351", "423344"] },
+    "4444": { "name": "CMP NWMG Family Practice West", "managers": ["423351", "423344"] },
+    "4441": { "name": "CMP NWMG Internal Medicine", "managers": ["423351", "423344"] },
+    "4440": { "name": "CMP NWMG Pediatrics", "managers": ["423351", "423344"] },
+    "5507": { "name": "CMP NWMG Pharmacy", "managers": ["423351", "423344"] },
+    "4445": { "name": "CMP NWMG Urgent Care", "managers": ["423351", "423344"] },
     "9355": { "name": "CMP Pediatrics", "managers": ["454820"] },
-
     "4653": { "name": "CMP PWMG Combo", "managers": ["538077"] },
     "4652": { "name": "CMP PWMG Family Practice", "managers": ["538077"] },
     "4749": { "name": "CMP PWMG Family Practice South", "managers": ["538077"] },
@@ -40,41 +76,24 @@
     "4648": { "name": "CMP PWMG Pediatrics", "managers": ["538077"] },
     "4651": { "name": "CMP PWMG Urgent Care", "managers": ["538077"] },
     "4750": { "name": "CMP PWMG X-Ray Site", "managers": ["538077"] },
-
     "4765": { "name": "CMP Reedley North", "managers": ["370036"] },
-
     "4199": { "name": "CMP Reedley West", "managers": ["369486"] },
-
     "5472": { "name": "CMP Tri-County", "managers": ["540057"] },
-
     "4227": { "name": "CMP West", "managers": ["369507"] },
-
     "4192": { "name": "CMP Woodward Park", "managers": ["370072"] },
-
     "5308": { "name": "DDC", "managers": ["369694", "543243", "369735"] },
-
     "8686": { "name": "ELM", "managers": ["369454", "638611"] },
-
     "4939": { "name": "FGI - Fresno Gastroenterology", "managers": ["369694", "543243", "781593"] },
-
     "7851": { "name": "Hongshek Han M.D.", "managers": ["462822", "588629"] },
-
     "5307": { "name": "NAMG", "managers": ["369694", "511592"] },
-
     "4898": { "name": "OAF&#x2f;WCC", "managers": ["543243"] },
-
     "5404": { "name": "SCC", "managers": ["369454", "542623" ] },
-
     "4206": { "name": "SSMC", "managers": ["456783", "369664"] },
-
     "7325": { "name": "The Heart Group Fresno", "managers": ["462822", "590021", "574556"] },
     "7326": { "name": "The Heart Group Clovis", "managers": ["462822", "590021", "574556"] },
-    
     "4613": { "name": "UGSC - UroGynecologist", "managers": ["369694", "440326"] },
     "9306": { "name": "UGSC Chestnut", "managers": ["369694", "440326"] },
-
     "5400": { "name": "VFASP", "managers": ["369694", "544495"] },
-
     "8835": { "name": "Valley Sleep and Wellness Center", "managers": ["543243", "786241"] },
     "5639": { "name": "WSC", "managers": ["369498", "545553"] },
     "4212": { "name": "WSFC", "managers": ["369498", "708567"] }
