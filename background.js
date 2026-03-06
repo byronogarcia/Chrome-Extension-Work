@@ -34,19 +34,30 @@ chrome.action.onClicked.addListener(async (tab) => {
     return;
   }
 
+// Read customerId from top frame where TicketApp lives
+  const results = await chrome.scripting.executeScript({
+    target: { tabId: tab.id, allFrames: true },
+    world: "MAIN",  // ADD THIS LINE
+    func: () => String(window.TicketApp?.customer?.id ?? "")
+  });
+  const customerId = results?.map(r => r.result).find(r => r !== "") ?? "";
+  console.log("customerId:", customerId);
+//---------------------------------------------------------
+
   await chrome.scripting.executeScript({
     target: { tabId: tab.id, allFrames: true },
     func: insertCustomerCC,
-    args: [siteData]
+    args: [siteData, customerId]
   });
 });
 
 
 
-function insertCustomerCC(siteData) {
+function insertCustomerCC(siteData, customerId) {
 
   console.log("Extension triggered.");
   console.log("Running in: ", window.location.href);
+  console.log("customerId received:", customerId); // ADD THIS LINE
 
   // ignore top
   //if (window.self !== window.top) return;
@@ -106,8 +117,19 @@ function insertCustomerCC(siteData) {
 
   console.log("Users found:", users);
 
+//-------------------------------------------------
+  console.log("customerId:", customerId, typeof customerId);
+  console.log("users types:", users.map(id => typeof id));
+
+  const filtered = users.filter(id => id !== customerId);
+
+  if (customerId && filtered.length < users.length) {
+  console.log("Excluded customer from CC:", customerId);
+  }
+// -----------------------------------------------
+
   // Format: user:123456,user:654321
-  const formatted = users.map(id => `user:${id}`).join(",");
+  const formatted = filtered.map(id => `user:${id}`).join(",");
 
   const input = document.getElementById("customerCC");
 

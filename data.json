@@ -1,5 +1,5 @@
 {
-  "_comment": "Manager IDs and their display names. TODO: Replace all 'Manager [ID]' placeholders with real names.",
+  "_comment": "Manager IDs and their display names.",
   "managers": {
     "369454": { "name": "Julie Gutierrez" },
     "691092": { "name": "Marielena Martinez" },
