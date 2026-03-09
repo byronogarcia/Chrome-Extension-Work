@@ -43,7 +43,8 @@
     "708567": { "name": "Crystal Oyervidez" },
     "423344": { "name": "Jonovia Cooks" },
     "565639": { "name": "Patricia Khwaja" },
-    "545210": { "name": "Kimberlee Gobel" }
+    "545210": { "name": "Kimberlee Gobel" },
+    "537300": { "name": "Cathy Rousey" }
   },
   "sites": {
     "5382": { "name": "AGHA", "managers": ["369454", "691092"] },
@@ -84,7 +85,7 @@
     "4765": { "name": "CMP Reedley North", "managers": ["370036"] },
     "4199": { "name": "CMP Reedley West", "managers": ["369486"] },
     "5472": { "name": "CMP Tri-County", "managers": ["540057"] },
-    "4227": { "name": "CMP West", "managers": ["369507"] },
+    "4227": { "name": "CMP West", "managers": ["369507", "537300"] },
     "5308": { "name": "DDC", "managers": ["369694", "543243", "369735"] },
     "8686": { "name": "ELM", "managers": ["369454", "638611"] },
     "4939": { "name": "FGI - Fresno Gastroenterology", "managers": ["369694", "543243", "781593"] },
