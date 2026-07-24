@@ -20,17 +20,22 @@ The Giva Autofill Cusomter CC can be toggled by:
 
 ## Running this extension
 
-1. Load this directory in Chrome as an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
-2. Navigate to https://developer.chrome.com/docs/extensions/ or https://developer.chrome.com/docs/webstore/.
-3. Click the extension icon to toggle the autofill.
+1. Open up Google Chrome Browser.
+2. Navigate to Extensions -> Manage Extensions or enter chrome://extensions in a new tab.
+3. Enable Developer Mode by clicking the toggle switch next to Developer mode.
+4. Click the Load unpacked button and select the extension directory.
+5. Path: X:\Technicians\Tools\Chrome\Extensions
+6. Pin your extension to the toolbar to quickly access your extension during development. Extensions -> Pin
+7. Click the extension icon to toggle the autofill.
+8. Alternatively, navigate to Extensions -> Keyboard Shortcuts 
+9. Set the keyboard shortcut on the Giva CC Autofill extension to: Ctrl + Shift + F
+10. Now, you can run the extension by clicking the icon OR using the shortcut Ctrl + Shift + F
 
 ## Goals for extension from here
 
 - Include offices Palm and Shaw, additional logic needed as there are 17-20 managers broken down by dept and individual user
 - Possibly auto-run when opening a new ticket and allow for click to run on already created tickets
 - Provide warning if the giva session is expired/visual cue
-- Use manage engine to deploy chrome extension to IT Dept, currently sharing zip->extracting->loading into chrome
-- Currently runs in all windows, running multiple times, need to run only in ticket iframe
 
 ## New Features
 - Will not include Manager CC if the Manager is the Customer
