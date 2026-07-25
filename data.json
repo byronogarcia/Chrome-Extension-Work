@@ -99,8 +99,52 @@
     "8027": { "name": "VPWC - Valley Podiatric Wound Care", "managers": ["369694", "544495"] },
     "8835": { "name": "Valley Sleep and Wellness Center", "managers": ["543243", "786241"] },
     "5639": { "name": "WSC", "managers": ["369498", "545210"] },
-    "4212": { "name": "WSFC", "managers": ["369498", "708567"] }
-    
-    
+    "4212": { "name": "WSFC", "managers": ["369498", "708567"] },
+
+"4979": {
+  "name": "Sante - Palm",
+  "mode": "corporate",
+  "departments": {
+    "Finance": {
+      "managers": [
+        "369498",
+        "545553"
+      ]
+    },
+    "Payroll": {
+      "managers": [
+        "369498",
+        "545553"
+      ]
+    }
+  }
+},
+"4189": {
+  "name": "Sante - Shaw",
+  "mode": "corporate",
+  "departments": {
+    "Finance": {
+      "departments": {
+        "Accounting": {
+          "managers": [
+            "369498"
+          ]
+        },
+        "Payroll": {
+          "managers": [
+            "545553"
+          ]
+        }
+      }
+    },
+    "IT": {
+      "managers": [
+        "369498",
+        "545553"
+      ]
+    }
   }
 }
+}
+}
+    
