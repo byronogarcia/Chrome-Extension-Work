@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Giva CC Autofill",
+  "name": "TESTING - Giva CC Autofill",
   "description": "Inserts user IDs into Customer CC field.",
   "version": "1.5",
   "icons": {
@@ -23,17 +23,10 @@
   },
   "permissions": [
     "scripting",
-    "activeTab",
-    "tabs"
+    "activeTab"
   ],
   "host_permissions": [
     "https://santehealth.giva.net/*"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["data.json"],
-      "matches": ["https://santehealth.giva.net/*"]
-    }
   ],
   "content_scripts": [
     {
